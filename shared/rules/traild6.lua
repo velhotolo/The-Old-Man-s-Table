@@ -56,31 +56,15 @@ return {
                = "Traild6",
     version    = "2",
     attributes = {
-        {
-            id = "body",
-            {
-                id = "mind",
-                { id = "soul",
-                },
-                label = "Body",
-                label = "Mind",
-                label = "Soul",
-                min = 1,
-                max = 5,
-                default = 2
-            },
-            min = 1,
-            max = 5,
-            default = 2
-        },
-        min = 1,
-        max = 5,
-        default = 2
+        { id = "body", label = "Body", min = 1, max = 5, default = 2 },
+        { id = "mind", label = "Mind", min = 1, max = 5, default = 2 },
+        { id = "soul", label = "Soul", min = 1, max = 5, default = 2 },
     },
     resources  = {
         { id = "life",  label = "Life",  max = function(ch) return 8 + ch.attrs.body * 2 end },
         { id = "focus", label = "Focus", max = function(ch) return ch.attrs.mind + ch.attrs.soul end },
-    },
+        },
+
     derived    = {
         {
             id = "defense",
@@ -91,7 +75,7 @@ return {
     },
     actions    = {
         attribute_test("body", "Body"),
-        attribute_test("mind", "Mind"),
+        attribute_test("mind", "mind"),
         attribute_test("soul", "Soul"),
         {
             id = "initiative",
@@ -105,3 +89,4 @@ return {
         attack("power_attack", "Power attack", 1, 2),
     },
 }
+
